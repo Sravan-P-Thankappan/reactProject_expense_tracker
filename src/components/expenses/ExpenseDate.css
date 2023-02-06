@@ -1,0 +1,23 @@
+.date{
+
+    background-color:black ;
+    box-shadow: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-width: 1px;
+
+    
+}
+
+.day{
+    text-align: center;
+    font-size: x-large;
+}
+.year{
+    text-align: center;
+
+
+}
