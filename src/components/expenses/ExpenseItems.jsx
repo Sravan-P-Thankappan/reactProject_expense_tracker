@@ -9,11 +9,7 @@ function ExpenseItems(props) {
 
     const [title, setTitle] = React.useState(props.title)
 
-    const handleClick = () => {
-
-        setTitle('Updated')
-
-    }
+   
 
 
 
@@ -35,10 +31,6 @@ function ExpenseItems(props) {
                     <div className='expense_price' >
                         <div>{props.amount}</div>
                     </div>
-
-                    <button onClick={handleClick}>
-                        Change
-                    </button>
 
                 </div>
 
