@@ -1,26 +1,34 @@
 import './App.css';
-import React, { useState } from 'react';
-import Expense from './pages/Expense';
-import NewExpense from './pages/NewExpense';
+import React from 'react';
+import Expense from './components/expenses/Expense';
+import NewExpense from './components/newExpense/NewExpense';
 
-
+const dummyExpenses = [
+  { title: 'Car Insurance', amount: 294.95, date: new Date('01-02-2022'), id: '1' },
+  { title: 'Water Bill', amount: 100, date: new Date('01-11-2021'), id: '2' },
+  { title: 'Wifi Bill', amount: 80, date: new Date('02-02-2023'), id: '3' }
+]
 
 
 function App() {
-  const [newData,setNewData] = useState({})
+
+  const[expenses,setExpenses] = React.useState(dummyExpenses)
+
   const getExpense = (params)=>{
-     
-    setNewData({...newData,...params})
+           
+    console.log('from App', params)
+        setExpenses((prev)=>{
+               
+          return [...prev,params]
+        })
   }
   
-  console.log('from app')
-  console.log(newData)
-
+  
   return (
    
     <div className='app'>
-      <NewExpense onGetNewExpense = {getExpense}/>
-      <Expense newExpense = {newData}/>
+      <NewExpense onAddExpense={getExpense}/>
+      <Expense item={expenses} />
     </div>
    
   );

@@ -36,6 +36,7 @@ body{
     align-items: center;
     border-radius: 10px;
     background-color: rgba(109, 16, 171, 0.629);
+    /* background-color: #9d4ad4a0; */
     font-size: large;
     font-weight: bolder;
     color: rgba(223, 241, 241, 0.822);
@@ -49,11 +50,4 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-.wrapper button{
-    width: 75%;
-    margin-left: 1rem;
-    padding: 4px;
-    border-radius: 5px;
-    background-color: bisque;
 }

@@ -8,11 +8,13 @@ function NewExpense(props) {
     
     const onSaveExpenseDataHndler = (enteredData)=>{
             
+        console.log('from newExpComp  ', enteredData) 
         const expenseData = {
             ...enteredData,
             id:Math.random().toString()
         }
-
+           
+        
         props.onAddExpense(expenseData)
     }
 

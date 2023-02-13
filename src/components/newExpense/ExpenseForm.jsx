@@ -7,10 +7,12 @@ function ExpenseForm(props) {
     // const [amount,setAmount] = React.useState('')
     // const [date,setDate] = React.useState('')
 
+    const [formVisible, setFormVisible] = React.useState(false)
+
     const [userInput, setUserInput] = React.useState({
-        enteredTitle: '',
-        enteredAmount: '',
-        enteredDate: ''
+        title: '',
+        amount: '',
+        date: ''
     })
 
 
@@ -20,7 +22,7 @@ function ExpenseForm(props) {
 
         setUserInput({
             ...userInput,
-            enteredTitle: e.target.value
+            title: e.target.value
         })
     }
 
@@ -31,7 +33,7 @@ function ExpenseForm(props) {
 
         setUserInput({
             ...userInput,
-            enteredAmount: e.target.value
+            date: e.target.value
         })
     }
 
@@ -52,7 +54,7 @@ function ExpenseForm(props) {
 
         setUserInput((prevState) => {
             return {
-                ...prevState, enteredDate: e.target.value
+                ...prevState, amount: e.target.value
             }
         })
     }
@@ -61,7 +63,7 @@ function ExpenseForm(props) {
 
         e.preventDefault();
 
-        userInput.enteredDate = new Date(userInput.enteredDate)
+        userInput.date = new Date(userInput.date)
 
         props.onSaveExpenseData(userInput)
 
@@ -71,6 +73,32 @@ function ExpenseForm(props) {
         // setTitle('')
 
         e.target.reset()
+        setFormVisible(false)
+    }
+      
+    const handleForm =()=>{
+        setFormVisible(true)
+    }
+
+    if (!formVisible) {
+        return (
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <button style={{
+                    padding: '10px',
+                    color: 'rgba(109, 16, 171, 0.629)',
+                    border: 'none',
+                    borderRadius: '10px',
+                    cursor:'pointer',
+                    fontWeight:'bold'
+                }}
+h
+                onClick={handleForm}
+                
+                >
+                    Add Expense
+                </button>
+            </div>
+        )
     }
 
 
@@ -126,6 +154,13 @@ function ExpenseForm(props) {
             </div>
 
             <div className='new-expense-action'>
+                 
+                 <button 
+                 style={{ cursor: 'pointer' }}
+                 onClick={()=>setFormVisible(false)}
+                 >
+                 Cancel 
+                 </button>
 
                 <button style={{ cursor: 'pointer' }}
                     type='submit'>

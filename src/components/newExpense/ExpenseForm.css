@@ -4,6 +4,7 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
+
 }
 
 .new-expense-control{
@@ -25,6 +26,7 @@
 .new-expense-action{
     display: flex;
     justify-content: center;
+    gap: 10px;
     /* padding-right: 15%; */
 }
 
