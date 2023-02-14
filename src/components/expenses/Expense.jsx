@@ -4,7 +4,7 @@ import './Expense.css'
 import Card from '../Card';
 import ExpensesFilter from './ExpenseFilter';
 import ExpenseList from './ExpenseList'
-
+import ExpensesChart from './ExpensesChart';
 
 
 
@@ -18,7 +18,6 @@ function Expense(props) {
         setSelectedYear(data)
     }
 
-    console.log(selectedYear)
 
     const filteredItem = props.item.filter((item) => {
 
@@ -51,9 +50,13 @@ function Expense(props) {
                     selectedYear={selectedYear}
                     onSelectYear={filterYear} />
 
+                    <ExpensesChart 
+                    expense={filteredItem}/>
+                    
                     <ExpenseList
                     filteredItem={filteredItem}
                     />
+
             </Card>
 
 
